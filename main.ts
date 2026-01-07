@@ -21,9 +21,16 @@ input.onButtonPressed(Button.A, function () {
 })
 
 /**
- * Bボタンを押したらカウントを0にリセット（停止状態はそのまま）
+ * Bボタンを押したらカウントを0にリセット
  */
 input.onButtonPressed(Button.B, function () {
     counter = 0
     basic.showNumber(counter)
+})
+
+/**
+ * A+Bボタンで再びカウントを始める
+ */
+input.onButtonPressed(Button.AB, function () {
+    running = true
 })
