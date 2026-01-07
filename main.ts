@@ -1,10 +1,29 @@
 let counter = 0
+let running = true
+
 /**
- * Aボタンを押したら数字が1増えるプログラム
+ * ずっとブロック（forever）内で1ずつカウントアップします
+ */
+basic.forever(function () {
+    if (running) {
+        counter += 1
+        basic.showNumber(counter)
+    }
+    // カウントの速さ（ミリ秒）。必要に応じて調整してください。
+    basic.pause(1000)
+})
+
+/**
+ * Aボタンを押したらカウントを止める
  */
 input.onButtonPressed(Button.A, function () {
-    // カウンターを７増やす
-    counter += 7
-    // 今の数字を表示
+    running = false
+})
+
+/**
+ * Bボタンを押したらカウントを0にリセット（停止状態はそのまま）
+ */
+input.onButtonPressed(Button.B, function () {
+    counter = 0
     basic.showNumber(counter)
 })
